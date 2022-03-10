@@ -105,6 +105,7 @@ class Api::SubsController < ApplicationController
     if @sub.update(sub_params)
       render json: @sub
     else
+      # render json: { errors: @sub.errors.messages[:title][0] },  status: :unprocessable_entity
       render json: { errors: @sub.errors },  status: :unprocessable_entity
     end
   end
@@ -140,5 +141,4 @@ class Api::SubsController < ApplicationController
       @sub = Sub.find(params[:id])
     end
   
-  end 
 end
